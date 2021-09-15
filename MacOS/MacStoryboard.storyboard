@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19150" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19150"/>
+    </dependencies>
+    <scenes>
+        <!--Mac View Controller Host-->
+        <scene sceneID="cxx-Gb-D8u">
+            <objects>
+                <hostingController id="Dh2-oe-chw" customClass="MacViewControllerHost" customModule="FaustAULiveCoder" customModuleProvider="target" sceneMemberID="viewController"/>
+                <customObject id="qGX-xP-P4h" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34" y="-282"/>
+        </scene>
+    </scenes>
+</document>
