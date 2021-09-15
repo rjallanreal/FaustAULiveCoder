@@ -14,12 +14,19 @@
 		235A75BD26C9F2AF0039F9EC /* MacViewControllerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A75BB26C9F0630039F9EC /* MacViewControllerHost.swift */; };
 		235A75BE26C9F2D70039F9EC /* MacStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235A75B926C9EEC20039F9EC /* MacStoryboard.storyboard */; };
 		237C0B6026F23ED500A8FF33 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237C0B5B26F23ED500A8FF33 /* AudioToolbox.framework */; };
+		237C0B6E26F24F1F00A8FF33 /* FaustAULiveCoderFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA06FF26CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework */; };
+		237C0B7526F251A700A8FF33 /* FaustAULiveCoderFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA06FF26CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework */; };
+		237C0B7626F251A700A8FF33 /* FaustAULiveCoderFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA06FF26CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		237C0B7926F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */ = {isa = PBXBuildFile; fileRef = 237C0B7826F25EDA00A8FF33 /* guitarScaleFile.aif */; };
+		237C0B7A26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */ = {isa = PBXBuildFile; fileRef = 237C0B7826F25EDA00A8FF33 /* guitarScaleFile.aif */; };
+		237C0B7B26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */ = {isa = PBXBuildFile; fileRef = 237C0B7826F25EDA00A8FF33 /* guitarScaleFile.aif */; };
+		237C0B7C26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */ = {isa = PBXBuildFile; fileRef = 237C0B7826F25EDA00A8FF33 /* guitarScaleFile.aif */; };
+		237C0B7D26F25F0D00A8FF33 /* FaustAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA073F26CF0B1000ADC1A3 /* FaustAdapter.framework */; };
+		237C0B7E26F25F0D00A8FF33 /* FaustAdapter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA073F26CF0B1000ADC1A3 /* FaustAdapter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		237C0B8126F2663C00A8FF33 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 237C0B8026F2663C00A8FF33 /* libc++.1.tbd */; };
 		2397FC5E26E0193500DD4166 /* TestEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397FC5D26E0193500DD4166 /* TestEngineManager.swift */; };
 		2397FC6526E0197A00DD4166 /* TestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397FC6426E0197A00DD4166 /* TestEngine.swift */; };
-		2397FC6726E2687A00DD4166 /* guitarScaleFile.aif in Resources */ = {isa = PBXBuildFile; fileRef = 2397FC6626E2687A00DD4166 /* guitarScaleFile.aif */; };
 		2397FC6826E279ED00DD4166 /* FaustAdapter_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 23CA074B26CF0EE400ADC1A3 /* FaustAdapter_types.h */; };
-		23A68FC826F23A9C009CCC24 /* guitarScaleFile.aif in Resources */ = {isa = PBXBuildFile; fileRef = 2397FC6626E2687A00DD4166 /* guitarScaleFile.aif */; };
-		23A68FCD26F23A9E009CCC24 /* guitarScaleFile.aif in Resources */ = {isa = PBXBuildFile; fileRef = 2397FC6626E2687A00DD4166 /* guitarScaleFile.aif */; };
 		23CA06BE26CEC9CB00ADC1A3 /* iOSStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23CA06BD26CEC9CB00ADC1A3 /* iOSStoryboard.storyboard */; };
 		23CA06C026CECA4600ADC1A3 /* iOSAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA06BF26CECA4600ADC1A3 /* iOSAppDelegate.swift */; };
 		23CA06C226CECAB500ADC1A3 /* iOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA06C126CECAB500ADC1A3 /* iOSViewController.swift */; };
@@ -28,21 +35,15 @@
 		23CA06F626CED93A00ADC1A3 /* iOSExtensionStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235A75BF26C9F7880039F9EC /* iOSExtensionStoryboard.storyboard */; };
 		23CA06F726CED94600ADC1A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2337D45C26C3875500867431 /* Assets.xcassets */; };
 		23CA070226CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 23CA070126CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23CA070526CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA06FF26CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework */; };
-		23CA070726CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA06FF26CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23CA070B26CEDF6E00ADC1A3 /* FaustAdaptorAudioUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A75C626CA0B6F0039F9EC /* FaustAdaptorAudioUnit.swift */; };
 		23CA070C26CEDF6E00ADC1A3 /* FaustLiveCoderComponentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA06C326CECEF700ADC1A3 /* FaustLiveCoderComponentDescription.swift */; };
 		23CA070E26CEDF6E00ADC1A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2337D45B26C3875300867431 /* ContentView.swift */; };
 		23CA070F26CEDF6E00ADC1A3 /* FaustLiveCoderAUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA06F826CEDEDC00ADC1A3 /* FaustLiveCoderAUViewController.swift */; };
 		23CA071026CEE02C00ADC1A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2337D45C26C3875500867431 /* Assets.xcassets */; };
-		23CA071226CEE05700ADC1A3 /* FaustAULiveCoderFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA06FF26CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework */; };
-		23CA071326CEE05700ADC1A3 /* FaustAULiveCoderFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA06FF26CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23CA074226CF0B1000ADC1A3 /* FaustAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 23CA074126CF0B1000ADC1A3 /* FaustAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23CA074D26CF154400ADC1A3 /* interpreter-dsp_CMAP.h in Headers */ = {isa = PBXBuildFile; fileRef = 23CA074C26CF10B800ADC1A3 /* interpreter-dsp_CMAP.h */; };
 		23CA075026CF192700ADC1A3 /* interpreter-dsp_CMAP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23CA074F26CF192700ADC1A3 /* interpreter-dsp_CMAP.cpp */; };
 		23CA077D26CF3F1A00ADC1A3 /* FaustAdaptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA077C26CF3F1A00ADC1A3 /* FaustAdaptorManager.swift */; };
-		23CA077E26CF444D00ADC1A3 /* FaustAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA073F26CF0B1000ADC1A3 /* FaustAdapter.framework */; };
-		23CA077F26CF444D00ADC1A3 /* FaustAdapter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA073F26CF0B1000ADC1A3 /* FaustAdapter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		237C0B7726F251A700A8FF33 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				237C0B7626F251A700A8FF33 /* FaustAULiveCoderFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237C0B7F26F25F0D00A8FF33 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				237C0B7E26F25F0D00A8FF33 /* FaustAdapter.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		23CA06E926CED59E00ADC1A3 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,39 +123,6 @@
 				23CA06EA26CED59E00ADC1A3 /* FaustAULiveCoderExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23CA070626CEDF4B00ADC1A3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				23CA070726CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23CA071626CEE05700ADC1A3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				23CA071326CEE05700ADC1A3 /* FaustAULiveCoderFramework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23CA078226CF444D00ADC1A3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				23CA077F26CF444D00ADC1A3 /* FaustAdapter.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -153,9 +143,10 @@
 		235A75C626CA0B6F0039F9EC /* FaustAdaptorAudioUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaustAdaptorAudioUnit.swift; sourceTree = "<group>"; };
 		235A75C926CA14890039F9EC /* FaustAULiveCoder--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FaustAULiveCoder--iOS--Info.plist"; sourceTree = "<group>"; };
 		237C0B5B26F23ED500A8FF33 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		237C0B7826F25EDA00A8FF33 /* guitarScaleFile.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitarScaleFile.aif; sourceTree = "<group>"; };
+		237C0B8026F2663C00A8FF33 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/usr/lib/libc++.1.tbd"; sourceTree = DEVELOPER_DIR; };
 		2397FC5D26E0193500DD4166 /* TestEngineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEngineManager.swift; sourceTree = "<group>"; };
 		2397FC6426E0197A00DD4166 /* TestEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEngine.swift; sourceTree = "<group>"; };
-		2397FC6626E2687A00DD4166 /* guitarScaleFile.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = guitarScaleFile.aif; path = ../../Downloads/CreatingCustomAudioEffects/Shared/Support/Audio/guitarScaleFile.aif; sourceTree = "<group>"; };
 		23CA06BD26CEC9CB00ADC1A3 /* iOSStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iOSStoryboard.storyboard; sourceTree = "<group>"; };
 		23CA06BF26CECA4600ADC1A3 /* iOSAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSAppDelegate.swift; sourceTree = "<group>"; };
 		23CA06C126CECAB500ADC1A3 /* iOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23CA070526CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework in Frameworks */,
+				237C0B7526F251A700A8FF33 /* FaustAULiveCoderFramework.framework in Frameworks */,
 				237C0B6026F23ED500A8FF33 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23CA071226CEE05700ADC1A3 /* FaustAULiveCoderFramework.framework in Frameworks */,
+				237C0B6E26F24F1F00A8FF33 /* FaustAULiveCoderFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +207,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23CA077E26CF444D00ADC1A3 /* FaustAdapter.framework in Frameworks */,
+				237C0B8126F2663C00A8FF33 /* libc++.1.tbd in Frameworks */,
+				237C0B7D26F25F0D00A8FF33 /* FaustAdapter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +251,8 @@
 				2337D47A26C38E1200867431 /* AUViewControllerRepresentable.swift */,
 				23CA06F826CEDEDC00ADC1A3 /* FaustLiveCoderAUViewController.swift */,
 				23CA077C26CF3F1A00ADC1A3 /* FaustAdaptorManager.swift */,
+				237C0B7826F25EDA00A8FF33 /* guitarScaleFile.aif */,
 				2397FC5D26E0193500DD4166 /* TestEngineManager.swift */,
-				2397FC6626E2687A00DD4166 /* guitarScaleFile.aif */,
 				2397FC6426E0197A00DD4166 /* TestEngine.swift */,
 			);
 			path = Shared;
@@ -387,6 +379,7 @@
 		23CA071126CEE05700ADC1A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				237C0B8026F2663C00A8FF33 /* libc++.1.tbd */,
 				237C0B5B26F23ED500A8FF33 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
@@ -436,7 +429,7 @@
 				2337D45E26C3875500867431 /* Frameworks */,
 				2337D45F26C3875500867431 /* Resources */,
 				23CA06E926CED59E00ADC1A3 /* Embed App Extensions */,
-				23CA070626CEDF4B00ADC1A3 /* Embed Frameworks */,
+				237C0B7726F251A700A8FF33 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -473,7 +466,6 @@
 				23CA06C426CED59E00ADC1A3 /* Sources */,
 				23CA06C526CED59E00ADC1A3 /* Frameworks */,
 				23CA06C626CED59E00ADC1A3 /* Resources */,
-				23CA071626CEE05700ADC1A3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -493,7 +485,7 @@
 				23CA06FB26CEDF4B00ADC1A3 /* Sources */,
 				23CA06FC26CEDF4B00ADC1A3 /* Frameworks */,
 				23CA06FD26CEDF4B00ADC1A3 /* Resources */,
-				23CA078226CF444D00ADC1A3 /* Embed Frameworks */,
+				237C0B7F26F25F0D00A8FF33 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -595,7 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2337D46C26C3875500867431 /* Assets.xcassets in Resources */,
-				23A68FC826F23A9C009CCC24 /* guitarScaleFile.aif in Resources */,
+				237C0B7926F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */,
 				23CA06BE26CEC9CB00ADC1A3 /* iOSStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2337D46D26C3875500867431 /* Assets.xcassets in Resources */,
+				237C0B7B26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */,
 				235A75BE26C9F2D70039F9EC /* MacStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,7 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23CA06F726CED94600ADC1A3 /* Assets.xcassets in Resources */,
-				23A68FCD26F23A9E009CCC24 /* guitarScaleFile.aif in Resources */,
+				237C0B7A26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */,
 				23CA06F626CED93A00ADC1A3 /* iOSExtensionStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,7 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23CA071026CEE02C00ADC1A3 /* Assets.xcassets in Resources */,
-				2397FC6726E2687A00DD4166 /* guitarScaleFile.aif in Resources */,
+				237C0B7C26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,7 +755,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
@@ -843,6 +836,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -854,6 +848,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7G66H8KM6Y;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FaustAULiveCoder--iOS--Info.plist";
@@ -866,8 +862,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wall",
@@ -877,6 +875,7 @@
 					"-Wno-overloaded-virtual",
 					"-Wshadow",
 					"-std=c++11",
+					"-D__WXOSX_COCOA__",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PilgrimTech.FaustAULiveCoder;
 				PRODUCT_NAME = FaustAULiveCoder;
@@ -886,6 +885,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = /usr/local/include;
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -894,6 +894,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -904,6 +905,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7G66H8KM6Y;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FaustAULiveCoder--iOS--Info.plist";
@@ -916,6 +919,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = "";
@@ -927,6 +931,7 @@
 					"-Wno-overloaded-virtual",
 					"-Wshadow",
 					"-std=c++11",
+					"-D__WXOSX_COCOA__",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PilgrimTech.FaustAULiveCoder;
 				PRODUCT_NAME = FaustAULiveCoder;
@@ -937,6 +942,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1009,6 +1015,7 @@
 		23CA06EC26CED59E00ADC1A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1018,6 +1025,7 @@
 				DEVELOPMENT_TEAM = 7G66H8KM6Y;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
@@ -1033,6 +1041,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wall",
 					"-Wextra",
@@ -1041,9 +1050,12 @@
 					"-Wno-overloaded-virtual",
 					"-Wshadow",
 					"-std=c++11",
+					"-D__WXOSX_COCOA__",
+					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PilgrimTech.FaustAULiveCoder.FaustAULiveCoderExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REZ_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1052,12 +1064,14 @@
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = /usr/local/include;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		23CA06ED26CED59E00ADC1A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1089,9 +1103,12 @@
 					"-Wno-overloaded-virtual",
 					"-Wshadow",
 					"-std=c++11",
+					"-D__WXOSX_COCOA__",
+					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PilgrimTech.FaustAULiveCoder.FaustAULiveCoderExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REZ_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1100,13 +1117,15 @@
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = /usr/local/include;
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		23CA070926CEDF4C00ADC1A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -1119,7 +1138,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1129,9 +1152,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				LIBRARY_SEARCH_PATHS = "";
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wall",
 					"-Wextra",
@@ -1140,16 +1164,20 @@
 					"-Wno-overloaded-virtual",
 					"-Wshadow",
 					"-std=c++11",
+					"-stdlib=libc++",
+					"-D__WXOSX_COCOA__",
 				);
+				OTHER_LDFLAGS = "-stdlib=libc++";
 				PRODUCT_BUNDLE_IDENTIFIER = PilgrimTech.FaustAULiveCoderFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
+				STRIP_STYLE = all;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = /usr/local/include;
+				USER_HEADER_SEARCH_PATHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1158,6 +1186,7 @@
 		23CA070A26CEDF4C00ADC1A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -1169,7 +1198,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1179,7 +1211,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				LIBRARY_SEARCH_PATHS = "";
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wall",
@@ -1189,16 +1222,20 @@
 					"-Wno-overloaded-virtual",
 					"-Wshadow",
 					"-std=c++11",
+					"-stdlib=libc++",
+					"-D__WXOSX_COCOA__",
 				);
+				OTHER_LDFLAGS = "-stdlib=libc++";
 				PRODUCT_BUNDLE_IDENTIFIER = PilgrimTech.FaustAULiveCoderFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
+				STRIP_STYLE = all;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = /usr/local/include;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1235,6 +1272,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MACH_O_TYPE = staticlib;
 				MARKETING_VERSION = 1.0;
 				MODULEMAP_FILE = FaustAdapter/FaustAdapter.modulemap;
@@ -1297,6 +1335,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = /Users/pilgrim/faust/faust/build/lib/Debug;
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MACH_O_TYPE = staticlib;
 				MARKETING_VERSION = 1.0;
 				MODULEMAP_FILE = FaustAdapter/FaustAdapter.modulemap;
