@@ -41,17 +41,20 @@ class TestEngine {
 
     engine.prepare()
     
+    
     let hardwareFormat = engine.outputNode.outputFormat(forBus: 0)
     engine.connect(engine.mainMixerNode, to: engine.outputNode, format: hardwareFormat)
     
     engine.attach(avAudioUnit)
 
     engine.disconnectNodeInput(engine.mainMixerNode)
-
     if let format = guitarScaleFile?.processingFormat {
-        engine.connect(player, to: avAudioUnit, format: format)
-        engine.connect(avAudioUnit, to: engine.mainMixerNode, format: format)
+      print("Here is channel count: \(format.channelCount)")
+      engine.connect(player, to: avAudioUnit, format: format)
+      engine.connect(avAudioUnit, to: engine.mainMixerNode, format: format)
+     
     }
+    print("Here is player maximum frames: \(player.auAudioUnit.maximumFramesToRender)")
   }
   
   private func setiOSSessionActive(_ active: Bool) {
@@ -69,6 +72,7 @@ class TestEngine {
   private func startPlayingInternal() {
     setiOSSessionActive(true)
       
+    loopGuitarScale()
     loopGuitarScale()
     
     let hardwareFormat = engine.outputNode.outputFormat(forBus: 0)

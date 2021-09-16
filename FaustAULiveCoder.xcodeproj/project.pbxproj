@@ -10,6 +10,10 @@
 		2337D46C26C3875500867431 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2337D45C26C3875500867431 /* Assets.xcassets */; };
 		2337D46D26C3875500867431 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2337D45C26C3875500867431 /* Assets.xcassets */; };
 		2337D47C26C38E1200867431 /* AUViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2337D47A26C38E1200867431 /* AUViewControllerRepresentable.swift */; };
+		2345CE3B26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */; };
+		2345CE3C26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */; };
+		2345CE3D26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */; };
+		2345CE3E26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */; };
 		235767D426EC174B009324DC /* libfaust.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 235767CD26EC1705009324DC /* libfaust.ios.a */; };
 		235A75BD26C9F2AF0039F9EC /* MacViewControllerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A75BB26C9F0630039F9EC /* MacViewControllerHost.swift */; };
 		235A75BE26C9F2D70039F9EC /* MacStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235A75B926C9EEC20039F9EC /* MacStoryboard.storyboard */; };
@@ -24,6 +28,15 @@
 		237C0B7D26F25F0D00A8FF33 /* FaustAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA073F26CF0B1000ADC1A3 /* FaustAdapter.framework */; };
 		237C0B7E26F25F0D00A8FF33 /* FaustAdapter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23CA073F26CF0B1000ADC1A3 /* FaustAdapter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		237C0B8126F2663C00A8FF33 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 237C0B8026F2663C00A8FF33 /* libc++.1.tbd */; };
+		237C0B8226F26A8600A8FF33 /* libfaust.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 235767CD26EC1705009324DC /* libfaust.ios.a */; };
+		237C0B8426F26D2400A8FF33 /* faustlibraries in Resources */ = {isa = PBXBuildFile; fileRef = 237C0B8326F26D2400A8FF33 /* faustlibraries */; };
+		237C0B8526F26D2400A8FF33 /* faustlibraries in Resources */ = {isa = PBXBuildFile; fileRef = 237C0B8326F26D2400A8FF33 /* faustlibraries */; };
+		237C0B8626F26D2400A8FF33 /* faustlibraries in Resources */ = {isa = PBXBuildFile; fileRef = 237C0B8326F26D2400A8FF33 /* faustlibraries */; };
+		237C0B8726F26D2400A8FF33 /* faustlibraries in Resources */ = {isa = PBXBuildFile; fileRef = 237C0B8326F26D2400A8FF33 /* faustlibraries */; };
+		237C0B8A26F28C6800A8FF33 /* KeyboardShowPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0B8926F28C6800A8FF33 /* KeyboardShowPublisher.swift */; };
+		237C0B8B26F28C6800A8FF33 /* KeyboardShowPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0B8926F28C6800A8FF33 /* KeyboardShowPublisher.swift */; };
+		237C0B8C26F28C6800A8FF33 /* KeyboardShowPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0B8926F28C6800A8FF33 /* KeyboardShowPublisher.swift */; };
+		237C0B8D26F28C6800A8FF33 /* KeyboardShowPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0B8926F28C6800A8FF33 /* KeyboardShowPublisher.swift */; };
 		2397FC5E26E0193500DD4166 /* TestEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397FC5D26E0193500DD4166 /* TestEngineManager.swift */; };
 		2397FC6526E0197A00DD4166 /* TestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397FC6426E0197A00DD4166 /* TestEngine.swift */; };
 		2397FC6826E279ED00DD4166 /* FaustAdapter_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 23CA074B26CF0EE400ADC1A3 /* FaustAdapter_types.h */; };
@@ -135,6 +148,7 @@
 		2337D47626C3877000867431 /* FaustAULiveCoder (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FaustAULiveCoder (iOS).entitlements"; sourceTree = "<group>"; };
 		2337D47A26C38E1200867431 /* AUViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		2337D47D26C38F9000867431 /* FaustAULiveCoder--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FaustAULiveCoder--macOS--Info.plist"; sourceTree = "<group>"; };
+		2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightPublisher.swift; sourceTree = "<group>"; };
 		235767C426EC1705009324DC /* faust.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = faust.xcodeproj; path = ../faust/faust/build/interpBuild/faust.xcodeproj; sourceTree = "<group>"; };
 		235A75B926C9EEC20039F9EC /* MacStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MacStoryboard.storyboard; sourceTree = "<group>"; };
 		235A75BB26C9F0630039F9EC /* MacViewControllerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacViewControllerHost.swift; sourceTree = "<group>"; };
@@ -145,6 +159,8 @@
 		237C0B5B26F23ED500A8FF33 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		237C0B7826F25EDA00A8FF33 /* guitarScaleFile.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitarScaleFile.aif; sourceTree = "<group>"; };
 		237C0B8026F2663C00A8FF33 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/usr/lib/libc++.1.tbd"; sourceTree = DEVELOPER_DIR; };
+		237C0B8326F26D2400A8FF33 /* faustlibraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = faustlibraries; path = ../faust/faustlibraries; sourceTree = "<group>"; };
+		237C0B8926F28C6800A8FF33 /* KeyboardShowPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShowPublisher.swift; sourceTree = "<group>"; };
 		2397FC5D26E0193500DD4166 /* TestEngineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEngineManager.swift; sourceTree = "<group>"; };
 		2397FC6426E0197A00DD4166 /* TestEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEngine.swift; sourceTree = "<group>"; };
 		23CA06BD26CEC9CB00ADC1A3 /* iOSStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iOSStoryboard.storyboard; sourceTree = "<group>"; };
@@ -199,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237C0B8226F26A8600A8FF33 /* libfaust.ios.a in Frameworks */,
 				237C0B6E26F24F1F00A8FF33 /* FaustAULiveCoderFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +243,7 @@
 		2337D45426C3875200867431 = {
 			isa = PBXGroup;
 			children = (
+				237C0B8326F26D2400A8FF33 /* faustlibraries */,
 				235767C426EC1705009324DC /* faust.xcodeproj */,
 				23CA06BC26CEC8AB00ADC1A3 /* iOS */,
 				235A75C926CA14890039F9EC /* FaustAULiveCoder--iOS--Info.plist */,
@@ -245,6 +263,7 @@
 		2337D45926C3875200867431 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				237C0B8826F28C5700A8FF33 /* Support */,
 				235A75C526CA0B4C0039F9EC /* AudioUnit */,
 				2337D45B26C3875300867431 /* ContentView.swift */,
 				2337D45C26C3875500867431 /* Assets.xcassets */,
@@ -304,6 +323,15 @@
 				23CA06C326CECEF700ADC1A3 /* FaustLiveCoderComponentDescription.swift */,
 			);
 			path = AudioUnit;
+			sourceTree = "<group>";
+		};
+		237C0B8826F28C5700A8FF33 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				237C0B8926F28C6800A8FF33 /* KeyboardShowPublisher.swift */,
+				2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		23CA06BC26CEC8AB00ADC1A3 /* iOS */ = {
@@ -588,6 +616,7 @@
 			files = (
 				2337D46C26C3875500867431 /* Assets.xcassets in Resources */,
 				237C0B7926F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */,
+				237C0B8426F26D2400A8FF33 /* faustlibraries in Resources */,
 				23CA06BE26CEC9CB00ADC1A3 /* iOSStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +627,7 @@
 			files = (
 				2337D46D26C3875500867431 /* Assets.xcassets in Resources */,
 				237C0B7B26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */,
+				237C0B8626F26D2400A8FF33 /* faustlibraries in Resources */,
 				235A75BE26C9F2D70039F9EC /* MacStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,6 +638,7 @@
 			files = (
 				23CA06F726CED94600ADC1A3 /* Assets.xcassets in Resources */,
 				237C0B7A26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */,
+				237C0B8526F26D2400A8FF33 /* faustlibraries in Resources */,
 				23CA06F626CED93A00ADC1A3 /* iOSExtensionStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +648,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23CA071026CEE02C00ADC1A3 /* Assets.xcassets in Resources */,
+				237C0B8726F26D2400A8FF33 /* faustlibraries in Resources */,
 				237C0B7C26F25EDB00A8FF33 /* guitarScaleFile.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,8 +667,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2345CE3B26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */,
 				23CA06C226CECAB500ADC1A3 /* iOSViewController.swift in Sources */,
 				23CA06C026CECA4600ADC1A3 /* iOSAppDelegate.swift in Sources */,
+				237C0B8A26F28C6800A8FF33 /* KeyboardShowPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,8 +678,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2345CE3D26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */,
 				235A75BD26C9F2AF0039F9EC /* MacViewControllerHost.swift in Sources */,
 				2337D47C26C38E1200867431 /* AUViewControllerRepresentable.swift in Sources */,
+				237C0B8C26F28C6800A8FF33 /* KeyboardShowPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +689,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237C0B8B26F28C6800A8FF33 /* KeyboardShowPublisher.swift in Sources */,
+				2345CE3C26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */,
 				23CA06F026CED6F100ADC1A3 /* FaustLiveCoderAUVIewControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,10 +701,12 @@
 			files = (
 				23CA077D26CF3F1A00ADC1A3 /* FaustAdaptorManager.swift in Sources */,
 				23CA070B26CEDF6E00ADC1A3 /* FaustAdaptorAudioUnit.swift in Sources */,
+				237C0B8D26F28C6800A8FF33 /* KeyboardShowPublisher.swift in Sources */,
 				23CA070C26CEDF6E00ADC1A3 /* FaustLiveCoderComponentDescription.swift in Sources */,
 				23CA070E26CEDF6E00ADC1A3 /* ContentView.swift in Sources */,
 				23CA070F26CEDF6E00ADC1A3 /* FaustLiveCoderAUViewController.swift in Sources */,
 				2397FC5E26E0193500DD4166 /* TestEngineManager.swift in Sources */,
+				2345CE3E26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */,
 				2397FC6526E0197A00DD4166 /* TestEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

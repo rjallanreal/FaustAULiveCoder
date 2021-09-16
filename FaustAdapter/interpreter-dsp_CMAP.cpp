@@ -8,6 +8,7 @@
 #include "interpreter-dsp_CMAP.h"
 #include "faust/dsp/interpreter-dsp.h"
 #include <string>
+#include<iostream>
 
 extern "C" {
 
@@ -41,8 +42,10 @@ C_interpreter_dsp_factory * C_createInterpreterDSPFactoryFromString(const char *
   const std::string name(name_app);
   const std::string content(dsp_content);
   std::string dummy("test");
-  
-  return reinterpret_cast<C_interpreter_dsp_factory *>(createInterpreterDSPFactoryFromString(name, content, argc, argv, dummy));
+  //std::cout << content << std::endl;
+  C_interpreter_dsp_factory * ans = reinterpret_cast<C_interpreter_dsp_factory *>(createInterpreterDSPFactoryFromString(name, content, argc, argv, dummy));
+  //std::cout << dummy << std::endl;
+  return ans;
 }
 
 bool C_deleteInterpreterDSPFactory(C_interpreter_dsp_factory * factory) {

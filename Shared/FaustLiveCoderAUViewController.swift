@@ -26,8 +26,8 @@ public class FaustLiveCoderAUViewController: AUViewController {
         controller.didMove(toParent: self)
 
         NSLayoutConstraint.activate([
-          controller.view.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5),
-          controller.view.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5),
+          controller.view.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0),
+          controller.view.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1.0),
           controller.view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
           controller.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
