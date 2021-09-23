@@ -12,13 +12,13 @@
 extern "C" {
 #endif
 
-struct C_interpreter_dsp;
+struct C_faust_dsp;
 
-typedef struct C_interpreter_dsp C_interpreter_dsp;
+typedef struct C_faust_dsp C_faust_dsp;
 
-struct C_interpreter_dsp_factory;
+struct C_faust_factory;
 
-typedef struct C_interpreter_dsp_factory C_interpreter_dsp_factory;
+typedef struct C_faust_factory C_faust_factory;
 
 #if __cplusplus
 }

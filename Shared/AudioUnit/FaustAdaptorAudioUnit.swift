@@ -10,12 +10,15 @@ import CoreAudioKit
 import FaustAdapter
 import AudioToolbox
 import AVFAudio
+import Dispatch
+import Atomics
 
 public class FaustAdaptorAudioUnit: AUAudioUnit {
   final class FaustItems {
     var myDSPFactory: OpaquePointer?
-    var myDSPInterpreter: OpaquePointer?
-    var loopback = false
+    var myDSP: OpaquePointer?
+    var faustSemaphore = DispatchSemaphore(value: 1)
+    var killSwitch = ManagedAtomic<Bool>(false)
   }
   final class BufferRenderParameters {
     var inputAudioBufferList: UnsafePointer<AudioBufferList>?
@@ -26,6 +29,8 @@ public class FaustAdaptorAudioUnit: AUAudioUnit {
   private let bufferRenderParameters = BufferRenderParameters()
   private var pcmBuffer: AVAudioPCMBuffer?
   private var audioFormat = AVAudioFormat.init(standardFormatWithSampleRate: 44100, channels: 2)!
+  
+  private let dspSwitchDispatch = DispatchQueue(label: "switchFaustDSPHere")
   
   private var initCounter =  0
   
@@ -63,13 +68,10 @@ public class FaustAdaptorAudioUnit: AUAudioUnit {
   
   public override var maximumFramesToRender: AUAudioFrameCount {
     get {
-      print("GET MAXFRAMES: \(bufferRenderParameters.maxFrames)")
       return bufferRenderParameters.maxFrames
     }
     set {
-      print("GET MAXFRAMES CHANGE: \(newValue)")
       if !renderResourcesAllocated {
-        print("PUSHING IN CHANGE")
         bufferRenderParameters.maxFrames = newValue
       }
     }
@@ -80,32 +82,73 @@ public class FaustAdaptorAudioUnit: AUAudioUnit {
         throw NSError(domain: NSOSStatusErrorDomain, code: Int(kAudioUnitErr_FailedInitialization), userInfo: nil)
     }
     try super.allocateRenderResources()
-    let values: UnsafeMutablePointer<UnsafePointer<Int8>?> =
-            UnsafeMutableRawPointer(CommandLine.unsafeArgv).bindMemory(
-                to: UnsafePointer<Int8>?.self,
-                capacity: Int(CommandLine.argc)
-            )
     
     let factoryName: NSString = "faustAdaptorFactory"
     let C_factoryName = UnsafePointer<CChar>(factoryName.utf8String)
-    let faustProgram: String = "import(\"\(Bundle.main.url(forResource: "stdfaust", withExtension: "lib", subdirectory: "faustlibraries")!.absoluteString)\"); \(myManager?.faustProgramString ?? "process = ef.reverseEchoN(1,128);")"
+    let faustProgram: String = "import(\"\(Bundle.main.url(forResource: "stdfaust", withExtension: "lib", subdirectory: "faustlibraries")!.absoluteString)\"); \(myManager?.faustProgramString ?? "process = _;")"
     let C_faustProgram = UnsafePointer<CChar>((faustProgram as NSString).utf8String)
-    self.faustItems.myDSPFactory = C_createInterpreterDSPFactoryFromString(C_factoryName, C_faustProgram, 0, nil) //Int32(CommandLine.argc), values)
-    print("HERE WE GO")
-    self.faustItems.myDSPInterpreter = createDSPInstance_C_interpreter_dsp_factory(self.faustItems.myDSPFactory)
-    init_interpreter_dsp(self.faustItems.myDSPInterpreter, Int32(audioFormat.sampleRate))
-    print("IN ALLOCATE, MAXFRAMEs \(bufferRenderParameters.maxFrames)")
+    var errorMsg: UnsafeMutablePointer<CChar>? = UnsafeMutablePointer<CChar>(nil)
+    
+    let newDSPFactory = create_faust_factory_from_string(C_factoryName, C_faustProgram, 0, nil, &errorMsg) //Int32(CommandLine.argc), values)
+    
+    var errorString = String(cString: errorMsg!)
+    
+    if !errorString.isEmpty {
+      errorString.removeFirst(21)
+      errorString.remove(at: errorString.index(errorString.startIndex, offsetBy: 2))
+      errorString.remove(at: errorString.index(errorString.startIndex, offsetBy: 3))
+      errorString.insert("\n", at: errorString.index(errorString.startIndex, offsetBy: 3))
+      errorString = "Faust compiler found issue with line" + errorString
+      myManager?.errorString = errorString
+      myManager?.showError = true
+      defaultDSP()
+    }
+    else {
+      let newDSP = create_faust_dsp(newDSPFactory)
+      init_faust_dsp(newDSP, Int32(audioFormat.sampleRate))
+      
+      let numOfInputs = faust_dsp_inputs(newDSP)
+      let numOfOutputs = faust_dsp_outputs(newDSP)
+      
+      if numOfInputs != 1 || numOfOutputs != 1 {
+        print("inputs: \(numOfInputs), outputs: \(numOfOutputs)")
+        myManager?.errorString = "Compiled faust was valid, but Pilgrim Faust requires the effect chain to have exactly one input and one output. The compiled faust has \(numOfInputs) inputs and \(numOfOutputs) outputs."
+        myManager?.showError = true
+        defaultDSP()
+      }
+      else {
+        self.faustItems.myDSPFactory = newDSPFactory
+        self.faustItems.myDSP = newDSP
+      }
+    }
+    errorMsg?.deallocate()
     pcmBuffer = AVAudioPCMBuffer(pcmFormat: inputBusses[0].format, frameCapacity: bufferRenderParameters.maxFrames)!;
     bufferRenderParameters.inputAudioBufferList = pcmBuffer!.audioBufferList
     bufferRenderParameters.inputMutableAudioBufferList = pcmBuffer!.mutableAudioBufferList
-    //kernelAdapter.allocateRenderResources()
+  }
+  
+  private func defaultDSP() {
+    let factoryName: NSString = "faustAdaptorFactory"
+    let C_factoryName = UnsafePointer<CChar>(factoryName.utf8String)
+    let faustProgram: String = "import(\"\(Bundle.main.url(forResource: "stdfaust", withExtension: "lib", subdirectory: "faustlibraries")!.absoluteString)\"); process = _;"
+    let C_faustProgram = UnsafePointer<CChar>((faustProgram as NSString).utf8String)
+    
+    var errorMsg: UnsafeMutablePointer<CChar>? = UnsafeMutablePointer<CChar>(nil)
+    
+    let newDSPFactory = create_faust_factory_from_string(C_factoryName, C_faustProgram, 0, nil, &errorMsg) //Int32(CommandLine.argc), values)
+    errorMsg?.deallocate()
+    
+    let newDSP = create_faust_dsp(newDSPFactory)
+    init_faust_dsp(newDSP, Int32(audioFormat.sampleRate))
+    self.faustItems.myDSPFactory = newDSPFactory
+    self.faustItems.myDSP = newDSP
   }
   
   public override func deallocateRenderResources() {
     super.deallocateRenderResources()
-    C_deleteInterpreterDSPFactory(faustItems.myDSPFactory)
+    delete_faust_factory(faustItems.myDSPFactory)
     faustItems.myDSPFactory = nil
-    faustItems.myDSPInterpreter = nil
+    faustItems.myDSP = nil
     pcmBuffer = nil
     initCounter = initCounter + 1
     print("NEW INITCOUNTER: \(initCounter)")
@@ -115,7 +158,6 @@ public class FaustAdaptorAudioUnit: AUAudioUnit {
     let bufferRenderParameters = self.bufferRenderParameters
     let faustItems = self.faustItems
     let initCounter = initCounter
-    print("RIGHT ABOUT TO RETURN RENDER BLOCK")
     return { [bufferRenderParameters, faustItems, initCounter]
       actionFlags, timestamp, frameCount, outputBusNumber, outputData, realtimeEventListHead, pullInputBlock in
       if (frameCount > bufferRenderParameters.maxFrames) {
@@ -139,21 +181,12 @@ public class FaustAdaptorAudioUnit: AUAudioUnit {
         mutableBuffers[i].mData =  ownedBuffers[i].mData
         mutableBuffers[i].mDataByteSize = byteSize
       }
-      
-     /* for i in 0 ..< Int(inputAudioBufferList.pointee.mNumberBuffers) {
-        var inputBuffer = UnsafeMutableRawBufferPointer(start: mutableBuffers[i].mData, count: Int(frameCount))
-        for j in 0 ..< Int(frameCount) {
-          print("J: \(j), Sample: \(inputBuffer[j])")
-        }
-      }*/
       var err = pullInputBlock!(&pullFlags, timestamp, frameCount, 0, inputMutableAudioBufferList)
       
       if err != 0 {
-        //print("PULL INPUT ERROR")
         return err
       }
-      //print("NO PULL INPUT ERROR")
-
+      
       let outputBuffers = UnsafeMutableBufferPointer<AudioBuffer>(start: &outputData.pointee.mBuffers, count: Int(outputData.pointee.mNumberBuffers))
       
       if (outputBuffers[0].mData == nil) {
@@ -161,24 +194,88 @@ public class FaustAdaptorAudioUnit: AUAudioUnit {
           outputBuffers[i].mData = mutableBuffers[i].mData
         }
       }
-     
-      for i in 0 ..< Int(outputData.pointee.mNumberBuffers) {
-        outputBuffers[i].mNumberChannels = mutableBuffers[i].mNumberChannels;
-        outputBuffers[i].mDataByteSize = byteSize;
-        /*var inputBuffer = UnsafeMutableRawBufferPointer(start: mutableBuffers[i].mData, count: Int(frameCount))
-        var outputBuffer = UnsafeMutableRawBufferPointer(start: outputBuffers[i].mData, count: Int(frameCount))
-        for i in 0 ..< Int(frameCount) {
-          outputBuffer[i] = inputBuffer[i]
-        }*/
-        var input: UnsafeMutablePointer<Float>? = mutableBuffers[i].mData!.bindMemory(to: Float.self, capacity: Int(frameCount))
-        var output: UnsafeMutablePointer<Float>? = outputBuffers[i].mData!.bindMemory(to: Float.self, capacity: Int(frameCount))
-        compute_interpreter_dsp(faustItems.myDSPInterpreter, Int32(frameCount), &input, &output)
+      if faustItems.killSwitch.load(ordering: .relaxed) {
+        for i in 0 ..< Int(outputData.pointee.mNumberBuffers) {
+          outputBuffers[i].mNumberChannels = mutableBuffers[i].mNumberChannels;
+          outputBuffers[i].mDataByteSize = byteSize;
+          var inputBuffer = UnsafeMutableRawBufferPointer(start: mutableBuffers[i].mData, count: Int(frameCount))
+          var outputBuffer = UnsafeMutableRawBufferPointer(start: outputBuffers[i].mData, count: Int(frameCount))
+          if inputBuffer.baseAddress != outputBuffer.baseAddress {
+            for i in 0 ..< Int(frameCount) {
+              outputBuffer[i] = inputBuffer[i]
+            }
+          }
+        }
       }
-      
+      else {
+        faustItems.faustSemaphore.wait()
+        for i in 0 ..< Int(outputData.pointee.mNumberBuffers) {
+          outputBuffers[i].mNumberChannels = mutableBuffers[i].mNumberChannels;
+          outputBuffers[i].mDataByteSize = byteSize;
+          var input: UnsafeMutablePointer<Float>? = mutableBuffers[i].mData!.bindMemory(to: Float.self, capacity: Int(frameCount))
+          var output: UnsafeMutablePointer<Float>? = outputBuffers[i].mData!.bindMemory(to: Float.self, capacity: Int(frameCount))
+          faust_compute(faustItems.myDSP, Int32(frameCount), &input, &output)
+        }
+        faustItems.faustSemaphore.signal()
+      }
       return noErr
     }
   }
 
+  func compileProgram() {
+    self.dspSwitchDispatch.sync {
+      let factoryName: NSString = "faustAdaptorFactory"
+      let C_factoryName = UnsafePointer<CChar>(factoryName.utf8String)
+      let faustProgram: String = "import(\"\(Bundle.main.url(forResource: "stdfaust", withExtension: "lib", subdirectory: "faustlibraries")!.absoluteString)\"); \(myManager?.faustProgramString ?? "process = _;")"
+      let C_faustProgram = UnsafePointer<CChar>((faustProgram as NSString).utf8String)
+      var errorMsg: UnsafeMutablePointer<CChar>? = UnsafeMutablePointer<CChar>(nil)
+      
+      let newDSPFactory = create_faust_factory_from_string(C_factoryName, C_faustProgram, 0, nil, &errorMsg) //Int32(CommandLine.argc), values)
+      
+      var errorString = String(cString: errorMsg!)
+      
+      if !errorString.isEmpty {
+        if errorString.contains("faustAdaptorFactory") {
+          errorString.removeFirst(21)
+          errorString.remove(at: errorString.index(errorString.startIndex, offsetBy: 2))
+          errorString.remove(at: errorString.index(errorString.startIndex, offsetBy: 3))
+          errorString.insert("\n", at: errorString.index(errorString.startIndex, offsetBy: 3))
+          errorString = "Faust compiler found issue with line" + errorString
+        }
+        else {
+          errorString.removeFirst(12)
+          errorString = "Faust compiler ran into an issue:\n" + errorString
+        }
+        myManager?.errorString = errorString
+        myManager?.showError = true
+      }
+      else {
+        let newDSP = create_faust_dsp(newDSPFactory)
+        init_faust_dsp(newDSP, Int32(audioFormat.sampleRate))
+      
+        let numOfInputs = faust_dsp_inputs(newDSP)
+        let numOfOutputs = faust_dsp_outputs(newDSP)
+        
+        if numOfInputs != 1 || numOfOutputs != 1 {
+          myManager?.errorString = "Compiled faust was valid, but Pilgrim Faust requires the effect chain to have exactly one input and one output. The compiled faust has \(numOfInputs) inputs and \(numOfOutputs) outputs."
+          myManager?.showError = true
+        }
+        else {
+          
+          self.faustItems.killSwitch.store(true, ordering: .relaxed)
+          self.faustItems.faustSemaphore.wait()
+          
+          delete_faust_factory(self.faustItems.myDSPFactory)
+          self.faustItems.myDSPFactory = newDSPFactory
+          self.faustItems.myDSP = newDSP
+          
+          self.faustItems.faustSemaphore.signal()
+          self.faustItems.killSwitch.store(false, ordering: .relaxed)
+        }
+      }
+      errorMsg?.deallocate()
+    }
+  }
   
   public override func supportedViewConfigurations(_ availableViewConfigurations: [AUAudioUnitViewConfiguration]) -> IndexSet {
     var indexSet = IndexSet()

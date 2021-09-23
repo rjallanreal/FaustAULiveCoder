@@ -21,7 +21,7 @@ int getNumOutputs_interpreter_dsp(C_interpreter_dsp * dsp);
 
 int getSampleRate_interpreter_dsp(C_interpreter_dsp * dsp);*/
 
-void init_interpreter_dsp(C_interpreter_dsp * dsp, int sample_rate);
+void init_faust_dsp(C_faust_dsp * dsp, int sample_rate);
 
 //void instanceInit_interpreter_dsp(C_interpreter_dsp * dsp, int sample_rate);
 
@@ -31,13 +31,17 @@ void instanceClear_interpreter_dsp(C_interpreter_dsp * dsp);
 
 C_interpreter_dsp * clone_interpreter_dsp(C_interpreter_dsp * dsp);*/
 
-void compute_interpreter_dsp(C_interpreter_dsp * dsp, int count, float ** input, float ** output);
+void faust_compute(C_faust_dsp * dsp, int count, float ** input, float ** output);
 
-C_interpreter_dsp * createDSPInstance_C_interpreter_dsp_factory(C_interpreter_dsp_factory * factory);
+int faust_dsp_inputs(C_faust_dsp * dsp);
 
-C_interpreter_dsp_factory * C_createInterpreterDSPFactoryFromString(const char * name_app, const char * dsp_content, int argc, const char* argv[]);
+int faust_dsp_outputs(C_faust_dsp * dsp);
 
-bool C_deleteInterpreterDSPFactory(C_interpreter_dsp_factory * factory);
+C_faust_dsp * create_faust_dsp(C_faust_factory * factory);
+
+C_faust_factory * create_faust_factory_from_string(const char * name_app, const char * dsp_content, int argc, const char* argv[], char ** error_msg);
+
+bool delete_faust_factory(C_faust_factory * factory);
 
 #if __cplusplus
 }

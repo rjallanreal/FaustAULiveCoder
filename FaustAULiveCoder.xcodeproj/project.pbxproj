@@ -14,6 +14,8 @@
 		2345CE3C26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */; };
 		2345CE3D26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */; };
 		2345CE3E26F38F43004C19C6 /* KeyboardHeightPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345CE3A26F38F43004C19C6 /* KeyboardHeightPublisher.swift */; };
+		2345CE4526F3C3E8004C19C6 /* Atomics in Frameworks */ = {isa = PBXBuildFile; productRef = 2345CE4426F3C3E8004C19C6 /* Atomics */; };
+		2345CE4726F3C4F8004C19C6 /* Atomics in Frameworks */ = {isa = PBXBuildFile; productRef = 2345CE4626F3C4F8004C19C6 /* Atomics */; };
 		235767D426EC174B009324DC /* libfaust.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 235767CD26EC1705009324DC /* libfaust.ios.a */; };
 		235A75BD26C9F2AF0039F9EC /* MacViewControllerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A75BB26C9F0630039F9EC /* MacViewControllerHost.swift */; };
 		235A75BE26C9F2D70039F9EC /* MacStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235A75B926C9EEC20039F9EC /* MacStoryboard.storyboard */; };
@@ -199,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2345CE4526F3C3E8004C19C6 /* Atomics in Frameworks */,
 				237C0B7526F251A700A8FF33 /* FaustAULiveCoderFramework.framework in Frameworks */,
 				237C0B6026F23ED500A8FF33 /* AudioToolbox.framework in Frameworks */,
 			);
@@ -224,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2345CE4726F3C4F8004C19C6 /* Atomics in Frameworks */,
 				237C0B8126F2663C00A8FF33 /* libc++.1.tbd in Frameworks */,
 				237C0B7D26F25F0D00A8FF33 /* FaustAdapter.framework in Frameworks */,
 			);
@@ -466,6 +470,9 @@
 				23CA070426CEDF4B00ADC1A3 /* PBXTargetDependency */,
 			);
 			name = "FaustAULiveCoder (iOS)";
+			packageProductDependencies = (
+				2345CE4426F3C3E8004C19C6 /* Atomics */,
+			);
 			productName = "FaustAULiveCoder (iOS)";
 			productReference = 2337D46126C3875500867431 /* FaustAULiveCoder.app */;
 			productType = "com.apple.product-type.application";
@@ -521,6 +528,9 @@
 				23CA078126CF444D00ADC1A3 /* PBXTargetDependency */,
 			);
 			name = FaustAULiveCoderFramework;
+			packageProductDependencies = (
+				2345CE4626F3C4F8004C19C6 /* Atomics */,
+			);
 			productName = FaustAULiveCoderFramework;
 			productReference = 23CA06FF26CEDF4B00ADC1A3 /* FaustAULiveCoderFramework.framework */;
 			productType = "com.apple.product-type.framework";
@@ -580,6 +590,9 @@
 				Base,
 			);
 			mainGroup = 2337D45426C3875200867431;
+			packageReferences = (
+				2345CE4326F3C3E7004C19C6 /* XCRemoteSwiftPackageReference "swift-atomics" */,
+			);
 			productRefGroup = 2337D46226C3875500867431 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -1468,6 +1481,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2345CE4326F3C3E7004C19C6 /* XCRemoteSwiftPackageReference "swift-atomics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-atomics.git";
+			requirement = {
+				kind = revision;
+				revision = 59f7fbf47952b50aceb2c09d3c12e0a120e82456;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2345CE4426F3C3E8004C19C6 /* Atomics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2345CE4326F3C3E7004C19C6 /* XCRemoteSwiftPackageReference "swift-atomics" */;
+			productName = Atomics;
+		};
+		2345CE4626F3C4F8004C19C6 /* Atomics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2345CE4326F3C3E7004C19C6 /* XCRemoteSwiftPackageReference "swift-atomics" */;
+			productName = Atomics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2337D45526C3875200867431 /* Project object */;
 }
