@@ -13,7 +13,7 @@ struct ContentView: View {
   @ObservedObject var testEngineManager: TestEngineManager
   //@State private var testText: String = "hello"
   @State private var keyboardShown: Bool = false
-  @State private var keyboardHeight: CGFloat = 0
+  //@State private var keyboardHeight: CGFloat = 0
   @State private var errorHeight: CGFloat = 0
   @State private var textEditID: String = UUID().uuidString
   
@@ -37,7 +37,7 @@ struct ContentView: View {
             Rectangle()
               .fill(Self.headerColor)
               .frame(width: geometry.size.width + geometry.safeAreaInsets.leading + geometry.safeAreaInsets.trailing, height: 40)
-            HStack {
+            /*HStack {
               if !faustHandle.undoStates.isEmpty {
                 Button(action: {
                   faustHandle.undo()
@@ -51,14 +51,24 @@ struct ContentView: View {
               }
               
               Spacer()
-            }
+            }*/
             Text("Pilgrim Faust")
               .foregroundColor(Color.white)
           }
           .ignoresSafeArea(.container, edges: .horizontal)
           
           Divider()
-          
+          if keyboardShown {
+            ZStack {
+              Rectangle()
+                .fill(Self.compileColor)
+                .frame(width: geometry.size.width + geometry.safeAreaInsets.leading + geometry.safeAreaInsets.trailing, height: 40)
+              Button("COMPILE")  {
+                self.faustHandle.compileProgram()
+                textEditID = UUID().uuidString
+              }
+            }
+          }
           ZStack {
             Rectangle()
               .fill(Self.compileColor)
@@ -130,27 +140,15 @@ struct ContentView: View {
           }
           .offset(x: 0, y: (geometry.size.height/2 + geometry.safeAreaInsets.bottom - (self.errorHeight / 2)))
         }
-        if keyboardShown {
-          ZStack {
-            Rectangle()
-              .fill(Self.compileColor)
-              .frame(width: geometry.size.width + geometry.safeAreaInsets.leading + geometry.safeAreaInsets.trailing, height: 40)
-            Button("COMPILE")  {
-              self.faustHandle.compileProgram()
-              textEditID = UUID().uuidString
-            }
-          }
-          .ignoresSafeArea()
-          .offset(x: 0, y: (geometry.size.height/2 - 20))
-        }
+        
       }
     }
     .onReceive(Publishers.keyboardShow) {
       self.keyboardShown = $0
-    }
+    }/*
     .onReceive(Publishers.keyboardHeight) {
       self.keyboardHeight = $0
-    }
+    }*/
   }
 }
 

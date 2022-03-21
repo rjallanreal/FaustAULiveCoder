@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import CoreAudioKit
+import FaustAULiveCoderFramework
 
 class MacViewControllerHost: AUViewController, NSHostingController {
   @objc required dynamic init?(coder: NSCoder) {

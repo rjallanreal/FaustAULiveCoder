@@ -9,6 +9,9 @@ import Combine
 
 extension Publishers {
   static var keyboardShow: AnyPublisher<Bool, Never> {
+#if os(macOS)
+    return Empty<Bool, Never>(completeImmediately: false).eraseToAnyPublisher()
+#else
     let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification).map
     { _ in true }
     
@@ -19,6 +22,8 @@ extension Publishers {
     
     return MergeMany(willShow, willHide)
       .eraseToAnyPublisher()
-  }
+
+#endif
+}
 }
 
