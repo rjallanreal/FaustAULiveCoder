@@ -63,9 +63,10 @@ public class FaustLiveCoderAUViewController: AUViewController {
     }*/
     if !isAppex {
       print(FaustLiveComponentDescription.componentDescription.componentManufacturer)
+      log(FaustLiveComponentDescription.componentDescription)
       AUAudioUnit.registerSubclass(FaustAdaptorAudioUnit.self,
                                    as: FaustLiveComponentDescription.componentDescription,
-                                   name: "Faust Adaptor Audio Unit",
+                                   name: "Plgm: FaustAdaptorAudioUnit",
                                    version: UInt32.max)
       print("BEFORE INSTNTIATE")
       AVAudioUnit.instantiate(with: FaustLiveComponentDescription.componentDescription) { audioUnit, error in
@@ -80,4 +81,31 @@ public class FaustLiveCoderAUViewController: AUViewController {
   }
   
   
+}
+
+extension FourCharCode {
+    var stringValue: String {
+        let value = CFSwapInt32BigToHost(self)
+        let bytes = [0, 8, 16, 24].map { UInt8(value >> $0 & 0x000000FF) }
+        guard let result = String(bytes: bytes, encoding: .utf8) else {
+            return "fail"
+        }
+        return result
+    }
+}
+
+func log(_ acd: AudioComponentDescription) {
+
+    let info = ProcessInfo.processInfo
+    print("\nProcess Name: \(info.processName) PID: \(info.processIdentifier)\n")
+
+    let message = """
+    AUv3FilterDemo (
+              type: \(acd.componentType.stringValue)
+           subtype: \(acd.componentSubType.stringValue)
+      manufacturer: \(acd.componentManufacturer.stringValue)
+             flags: \(String(format: "%#010x", acd.componentFlags))
+    )
+    """
+    print(message)
 }

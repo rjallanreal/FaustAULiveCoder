@@ -14,8 +14,8 @@ public struct FaustLiveComponentDescription {
       // Ensure that AudioUnit type, subtype, and manufacturer match the extension's Info.plist values
       var componentDescription = AudioComponentDescription()
       componentDescription.componentType = kAudioUnitType_Effect
-      componentDescription.componentSubType = 0x504c455a//0x4c636f64 //0x6c636f64 /*'lcod'*/
-      componentDescription.componentManufacturer = 0x53755065 //0x506c676d /*'Plgm'*/
+      componentDescription.componentSubType = 0x6c636f64 /*'lcod'*/
+      componentDescription.componentManufacturer = 0x506c676d /*'Plgm'*/
       componentDescription.componentFlags = 0
       componentDescription.componentFlagsMask = 0
 

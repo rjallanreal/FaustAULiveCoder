@@ -280,6 +280,7 @@
 		23CA077C26CF3F1A00ADC1A3 /* FaustAdaptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaustAdaptorManager.swift; sourceTree = "<group>"; };
 		23CB451D27F13DB400E05619 /* macOSStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = macOSStoryboard.storyboard; sourceTree = "<group>"; };
 		23CB451F27F13E9400E05619 /* macOSAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSAppDelegate.swift; sourceTree = "<group>"; };
+		23CB452227F16C0800E05619 /* FaustAULiveCoder (macOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FaustAULiveCoder (macOS).entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +366,7 @@
 		2337D45426C3875200867431 = {
 			isa = PBXGroup;
 			children = (
+				23CB452227F16C0800E05619 /* FaustAULiveCoder (macOS).entitlements */,
 				239852DF27F10D6F0019074E /* libfaust.a */,
 				239852DC27F1071C0019074E /* faustlibraries */,
 				239852DB27F106F10019074E /* libfaust.ios.a */,
@@ -1284,13 +1286,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_ENTITLEMENTS = "FaustAULiveCoder (macOS).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7G66H8KM6Y;
-				ENABLE_APP_SANDBOX = YES;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -1325,12 +1328,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_ENTITLEMENTS = "FaustAULiveCoder (macOS).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7G66H8KM6Y;
-				ENABLE_APP_SANDBOX = YES;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;

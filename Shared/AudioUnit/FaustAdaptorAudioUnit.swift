@@ -148,6 +148,20 @@ public class FaustAdaptorAudioUnit: AUAudioUnit {
     self.faustItems.myDSP = newDSP
   }
   
+  public override init(componentDescription: AudioComponentDescription,
+                       options: AudioComponentInstantiationOptions = []) throws {
+
+
+
+      // Create the super class.
+      try super.init(componentDescription: componentDescription, options: options)
+
+      // Log the component description values.
+      log(componentDescription)
+      
+      // Set the default preset.
+  }
+  
   public override func deallocateRenderResources() {
     super.deallocateRenderResources()
     delete_faust_factory(faustItems.myDSPFactory)
