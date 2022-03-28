@@ -19,12 +19,17 @@ public class FaustLiveCoderAUViewController: AUViewController {
         let faustHandle = FaustAdaptorManager(self.faustUnit)
         self.faustHandle = faustHandle
         let faustView = ContentView(faustHandle: faustHandle, testEngineManager: self.testEngineManager)
+#if os(macOS)
+        let controller = NSHostingController(rootView: faustView)
+#else
         let controller = UIHostingController(rootView: faustView)
+#endif
         self.addChild(controller)
         controller.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(controller.view)
+#if os(iOS)
         controller.didMove(toParent: self)
-
+#endif
         NSLayoutConstraint.activate([
           controller.view.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0),
           controller.view.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1.0),
@@ -57,11 +62,12 @@ public class FaustLiveCoderAUViewController: AUViewController {
       try! self.createAudioUnit(with: FaustLiveComponentDescription.componentDescription)
     }*/
     if !isAppex {
+      print(FaustLiveComponentDescription.componentDescription.componentManufacturer)
       AUAudioUnit.registerSubclass(FaustAdaptorAudioUnit.self,
                                    as: FaustLiveComponentDescription.componentDescription,
                                    name: "Faust Adaptor Audio Unit",
                                    version: UInt32.max)
-
+      print("BEFORE INSTNTIATE")
       AVAudioUnit.instantiate(with: FaustLiveComponentDescription.componentDescription) { audioUnit, error in
         guard error == nil, let audioUnit = audioUnit else {
             fatalError("Could not instantiate audio unit: \(String(describing: error))")

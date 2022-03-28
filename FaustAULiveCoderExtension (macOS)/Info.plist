@@ -10,17 +10,17 @@
 			<array>
 				<dict>
 					<key>description</key>
-					<string>FaustAULiveCoderExtension</string>
+					<string>FaustAULiveCoderExtension (macOS)</string>
 					<key>factoryFunction</key>
-					<string>$(PRODUCT_MODULE_NAME).iOSAUVIewController</string>
+					<string>$(PRODUCT_MODULE_NAME).macOSExtensionStorboard</string>
 					<key>manufacturer</key>
-					<string>Plgm</string>
+					<string>SuPe</string>
 					<key>name</key>
-					<string>Plgm: FaustAULiveCoderExtension</string>
+					<string>Faust Adaptor Audio Unit</string>
 					<key>sandboxSafe</key>
 					<true/>
 					<key>subtype</key>
-					<string>lcod</string>
+					<string>PLEZ</string>
 					<key>tags</key>
 					<array>
 						<string>Effects</string>
@@ -33,7 +33,7 @@
 			</array>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
-		<string>iOSExtensionStoryboard</string>
+		<string>macOSExtensionStoryboard</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.AudioUnit-UI</string>
 	</dict>

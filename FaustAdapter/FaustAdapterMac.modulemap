@@ -1,0 +1,4 @@
+framework module FaustAdapterMac [extern_c] [system] {
+  header "FaustAdapterMac.h"
+  export *
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1300"
+   LastUpgradeVersion = "1330"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "23CA06C726CED59E00ADC1A3"
-               BuildableName = "FaustAULiveCoderExtension.appex"
-               BlueprintName = "FaustAULiveCoderExtension"
+               BuildableName = "FaustAULiveCoderExtension (iOS).appex"
+               BlueprintName = "FaustAULiveCoderExtension (iOS)"
                ReferencedContainer = "container:FaustAULiveCoder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

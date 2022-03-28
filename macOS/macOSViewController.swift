@@ -1,16 +1,16 @@
 //
-//  iOSViewController.swift
-//  iOSViewController
+//  MacViewControllerHost.swift
+//  MacViewControllerHost
 //
-//  Created by Ryan Allan on 8/19/21.
+//  Created by Ryan Allan on 8/15/21.
 //
 
-import UIKit
-import FaustAULiveCoderFramework
+import Foundation
+import SwiftUI
+import CoreAudioKit
+import FaustAULiveCoderFrameworkMac
 
-
-class iOSViewController: UIViewController {
-
+class macOSViewController: NSViewController {
   override func viewDidLoad() {
       super.viewDidLoad()
       embedPlugInView()
@@ -19,7 +19,7 @@ class iOSViewController: UIViewController {
   func embedPlugInView() {
      let controller = loadViewController()
     // Present the view controller's view.
-    if let view = controller.view {
+    let view = controller.view
       addChild(controller)
       view.frame = self.view.bounds
       self.view.addSubview(view)
@@ -31,23 +31,21 @@ class iOSViewController: UIViewController {
         view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
       ])
-      controller.didMove(toParent: self)
-    }
+    
   }
   
   
-  private func loadViewController() -> UIViewController {
+  private func loadViewController() -> NSViewController {
     // Locate the app extension's bundle in the main app's PlugIns directory
-    guard let url = Bundle.main.builtInPlugInsURL?.appendingPathComponent("FaustAULiveCoderExtension (iOS).appex"),
+    guard let url = Bundle.main.builtInPlugInsURL?.appendingPathComponent("FaustAULiveCoderExtension (macOS).appex"),
       let appexBundle = Bundle(url: url) else {
           fatalError("Could not find app extension bundle URL.")
     }
 
-    let storyboard = UIStoryboard(name: "iOSExtensionStoryboard", bundle: appexBundle)
-    guard let controller = storyboard.instantiateInitialViewController() as? FaustLiveCoderAUViewController else {
+    let storyboard = NSStoryboard(name: "macOSExtensionStoryboard", bundle: appexBundle)
+    guard let controller = storyboard.instantiateInitialController() as? FaustLiveCoderAUViewController else {
         fatalError("Unable to instantiate FaustLiveCoderAUViewController")
     }
     return controller
   }
-  
 }

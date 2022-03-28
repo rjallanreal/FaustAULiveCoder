@@ -7,7 +7,11 @@
 
 import Foundation
 import CoreAudioKit
+#if os(macOS)
+import FaustAdapterMac
+#else
 import FaustAdapter
+#endif
 import AudioToolbox
 import AVFAudio
 import Dispatch

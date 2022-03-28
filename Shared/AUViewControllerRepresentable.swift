@@ -8,7 +8,7 @@
 import Foundation
 import CoreAudioKit
 import SwiftUI
-
+/*
 struct AUViewControllerRepresentable: UIViewControllerRepresentable {
   typealias UIViewControllerType = AUViewController
   func makeUIViewController(context: UIViewControllerRepresentableContext<AUViewControllerRepresentable>) -> AUViewController {
@@ -20,3 +20,4 @@ struct AUViewControllerRepresentable: UIViewControllerRepresentable {
 
   }
 }
+*/
