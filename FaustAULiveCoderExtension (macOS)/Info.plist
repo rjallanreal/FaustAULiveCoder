@@ -18,7 +18,7 @@
 					<key>name</key>
 					<string>Plgm: FaustAdaptorAudioUnit</string>
 					<key>sandboxSafe</key>
-					<false/>
+					<true/>
 					<key>subtype</key>
 					<string>lcod</string>
 					<key>tags</key>

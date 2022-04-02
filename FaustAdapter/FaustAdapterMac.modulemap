@@ -1,4 +1,5 @@
 framework module FaustAdapterMac [extern_c] [system] {
   header "FaustAdapterMac.h"
-  export *
+  link "LLVM-13"
+  link "c++"
 }

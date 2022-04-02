@@ -15,4 +15,4 @@ FOUNDATION_EXPORT const unsigned char FaustAdapterMacVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <FaustAdapter/PublicHeader.h>
 
-#include "interpreter-dsp_CMAP.h"
+#include "dsp_CMAP.h"
